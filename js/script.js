@@ -34,16 +34,23 @@ let quotes = [
     }
 ];
 
+//variable holding the number of quotes
+var max = 5;
+var lastq;
+var quote = quotes[Math.floor(Math.random() * max)];
+
 /***
  * `getRandomQuote` function
 ***/
 
 function getRandomQuote() {
-    // variable holding the number of quotes
-    const max = 5;
 
     // using the Math floor and random function to pick a random quote from array
-    let quote = quotes[Math.floor(Math.random() * max)];
+    while (quote.quote === lastq) {
+        quote = quotes[Math.floor(Math.random() * max)];
+    }
+
+    lastq = quote.quote;
 
     // return the random quote
     return quote;
